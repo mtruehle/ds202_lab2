@@ -1,0 +1,28 @@
+---
+title: "individual1"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+choco <- read.csv("https://xdaiisu.github.io/ds202materials/hwlabs/choco.csv")
+head(choco)
+```
+```{r}
+# 1: How are the ratings distributed? Plot a histogram of the ratings and describe.
+hist(choco$Rating, main = 'Histogram of Chocolate Ratings', xlab = 'Rating')
+boxplot(choco$Rating)
+
+# By looking at both the histogram and the boxplot, I can conclude that it is a normal distribution with an outlier at 5 and a few oultiers near the bottom.
+```
+
+```{r}
+# 2: Do ratings depend on the cocao percentage of a chocolate bar?
+cor(choco$Rating, choco$Cocoa.Pct)
+# By getting a correlation value that is close to zero, I can conclude that the ratings of the chocolate do not depnd on the cocao percentage.
+```
+
+
