@@ -1,0 +1,40 @@
+---
+title: "team"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+```{r}
+choco <- read.csv("https://xdaiisu.github.io/ds202materials/hwlabs/choco.csv")
+head(choco)
+
+# 1: What is the overall number of chocolate bars rated?
+
+nrow(choco)
+
+# There werer 1852 different chocolate bars that were rated.
+```
+
+```{r}
+# 2: How does the number of ratings depend on the year? Draw a bar chart of the number of reports.
+
+barplot(table(choco$Review.Date))
+
+# From the plot, it looks as if there were more ratings as the years went on, and it peaked in 2015 with 285 ratings.
+```
+
+```{r}
+# 3: How do ratings compare across different company locations? Focus on the three locations with the most ratings. (Hint: They are U.S.A., France, and Canada, but find them out using codes.)
+
+sort(table(choco$Company.Location), decreasing = TRUE)
+
+usa<- choco[choco$Company.Location == "U.S.A.",]
+france<- choco[choco$Company.Location == "France",]
+canada<- choco[choco$Company.Location == "Canada",]
+
+boxplot(usa$Rating, france$Rating, canada$Rating, xlab="Country", ylab="Rating", main="Rating Distribution of Top 3 Countries", names = c('USA', 'France', 'Canada'))
+```
+
+
