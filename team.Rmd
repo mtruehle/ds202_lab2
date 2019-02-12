@@ -37,4 +37,21 @@ canada<- choco[choco$Company.Location == "Canada",]
 boxplot(usa$Rating, france$Rating, canada$Rating, xlab="Country", ylab="Rating", main="Rating Distribution of Top 3 Countries", names = c('USA', 'France', 'Canada'))
 ```
 
+```{r}
+# 4: The United States, Germany, Switzerland, and Belgium are the top four countries responsible for the world's chocolate production, meanwhile countries like Vietnam and Israel don't make nearly as much. Is rating correlated to the amount of chocolate a country produces?
+```
 
+```{r}
+# 5:
+usa<- choco[choco$Company.Location == "U.S.A.",]
+germany<- choco[choco$Company.Location == "Germany",]
+switzerland<- choco[choco$Company.Location == "Switzerland",]
+belgium<- choco[choco$Company.Location == "Belgium",]
+vietnam<- choco[choco$Company.Location == "Vietnam",]
+israel<- choco[choco$Company.Location == "Israel",]
+
+
+boxplot(usa$Rating, germany$Rating, switzerland$Rating, belgium$Rating, vietnam$Rating, israel$Rating, xlab="Country", ylab="Rating", main="Rating Distribution of The World's Highest and Lowest Chocolate Producers", names = c('USA', 'Germany', 'Switzerland', 'Belgium', 'Vietnam', 'Israel'))
+
+# It looks like rating is not correlated to the amount of chocolate a country produces, although Vietnam and Israel lack any 4.0 ratings.
+```
